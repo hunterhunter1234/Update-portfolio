@@ -1,0 +1,74 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+.shadow {
+    box-shadow: 10px  solid rgba(240, 3, 3, 0.804); /* Customize the shadow properties as needed */
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+    }
+
+    #passwordStrength {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+    
+    .password-meter {
+        display: flex;
+        height: 5px;
+        margin-top: 10px;
+    }
+    
+    .meter-section {
+        flex: 1;
+        background-color: #ddd;
+    }
+    
+    .weak {
+        background-color: #ff4d4d;
+    }
+    
+    .medium {
+        background-color: #ffd633;
+    }
+    
+    .strong {
+        background-color: #00b300;
+    }
+    
+    .very-strong {
+        background-color: #009900;
+    }
