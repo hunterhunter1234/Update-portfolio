@@ -15,15 +15,16 @@
                     <h4 class="mt-1 mb-5 pb-1">Forgot Password</h4>
                   </div>
   
-                  <form>
+                  <form action="{{route('login.savepass')}}" method="POST">
+                    @csrf
+                    @method('post')
                       <div class="row justify-content-center">
                           <div class="row justify-content-center">
                               <div class="col-12 col-md-6 col-lg-4" style="min-width: 500px;">
                                   <div class="card bg-white mb-5 mt-5 border-0" style="box-shadow: 0 12px 15px rgba(0, 0, 0, 0.02);">
-                                      <div class="card-body p-5">
-                      
+                                      <div class="card-body p-5">              
                                           <label for="password-input" class="form-label fw-bold">Password</label>
-                                          <input type="password" class="form-control" id="password-input" autocomplete="off"
+                                          <input name="pass1" type="password" class="form-control" id="password-input" autocomplete="off"
                                                  aria-autocomplete="list"
                                                  aria-label="Password" aria-describedby="passwordHelp">
                                           <div class="password-meter">
@@ -36,14 +37,20 @@
                                               letters, numbers &
                                               symbols.
                                           </div>
+
+                                          <label for="password-input" class="form-label fw-bold">Confirm Password</label>
+                                          <input name="pass2" type="password" class="form-control" id="password-input" autocomplete="off"
+                                                 aria-autocomplete="list"
+                                                 aria-label="Password" aria-describedby="passwordHelp">
                                       </div>
+          
                                   </div>
                               </div>
                           </div>
                       </div>
                 
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Reset Password</button>
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Reset Password</button>
                      
                     </div>
   

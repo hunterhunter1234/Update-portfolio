@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/skins/color-4.css')}}" class="alternate-style" title="color-4" disabled>
     <link rel="stylesheet" href="{{ asset('css/skins/color-5.css')}}" class="alternate-style" title="color-5" disabled>
     <link rel="stylesheet" href="{{ asset('css/style-switcher.css')}}">
+  
     <title>My Portfolio</title>
 </head>
 <body>

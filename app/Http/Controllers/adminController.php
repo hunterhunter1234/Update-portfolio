@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\home;
 
@@ -11,7 +11,13 @@ class adminController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        if (Auth::check()) {
+            return view('admin.index');
+        } else {
+            // Redirect the user to the login page or show an error message
+            return redirect()->route('login.index')->with('error', 'Please log in to change your password.');
+        }
+       
     }
 
     public function home()
@@ -36,5 +42,11 @@ class adminController extends Controller
         $id->update($data);
 
         return redirect(route('admin.home'));
+    }
+
+    public function updatepass()
+    {
+       
+        return view('admin.section.setting');
     }
 }

@@ -6,5 +6,25 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/datatables-simple-demo.js')}}"></script>
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+         {{-- sweetalert --}}
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <!-- Include SweetAlert Script -->
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const alert = {!! json_encode(session('alert')) !!};
+
+      if (alert) {
+          const { type, message } = alert;
+          Swal.fire({
+              icon: type,
+              title: message,
+              showConfirmButton: false,
+              timer: 1500
+          });
+      }
+  });
+  </script>
     </body>
 </html>

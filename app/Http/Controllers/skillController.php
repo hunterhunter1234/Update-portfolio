@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\skill;
-
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -12,11 +12,17 @@ class skillController extends Controller
 
     public function index()
     {
-        $skill = skill::all();
-        return view('admin.section.skill', [
-
-            'skill' => $skill
-        ]);
+        if (Auth::check()) {
+            $skill = skill::all();
+            return view('admin.section.skill', [
+    
+                'skill' => $skill
+            ]);
+        } else {
+            // Redirect the user to the login page or show an error message
+            return redirect()->route('login.index')->with('error', 'Please log in to change your password.');
+        }
+      
     }
 
     public function add(Request $request)

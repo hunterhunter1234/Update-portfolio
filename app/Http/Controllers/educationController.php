@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 use App\Models\education;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class educationController extends Controller
 {
     //
     public function index()
     {
-        $education = education::all();
-        return view('admin.section.eduction', [
-
-            'education' => $education
-        ]);
+        if (Auth::check()) {
+            $education = education::all();
+            return view('admin.section.eduction', [
+    
+                'education' => $education
+            ]);
+        } else {
+            // Redirect the user to the login page or show an error message
+            return redirect()->route('login.index')->with('error', 'Please log in to change your password.');
+        }
+       
     }
 
     public function add(Request $request)

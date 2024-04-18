@@ -11,23 +11,30 @@ use App\Http\Controllers\skillController;
 use App\Http\Controllers\experienceController;
 use App\Http\Controllers\educationController;
 use App\Http\Controllers\loginController;
-Route::get('/', function () {
-    return view('landingpage.index');
-});
+use App\Http\Controllers\AuthController;
+
+    Route::get('/', [homeController::class, 'index'])->name('home.index');
 
 
-// home
-Route::get('/home', [homeController::class, 'index'])->name('home.index');
+
+
 
 //admin
 Route::get('/admin', [adminController::class, 'index'])->name('admin.index');
 Route::get('/admin/homeupdate', [adminController::class, 'home'])->name('admin.home');
 Route::post('/admin/homeupdate/{id}/save', [adminController::class, 'update'])->name('admin.save');
+Route::get('/admin/updatepass', [adminController::class, 'updatepass'])->name('admin.updatepass');
+Route::post('/admin/homeupdate/pass', [adminController::class, 'savepass'])->name('admin.pass');
 
 // login
 Route::get('/login', [loginController::class, 'index'])->name('login.index');
+Route::post('/auth', [AuthController::class, 'login'])->name('login.auth');
+Route::post('/verify', [AuthController::class, 'verify'])->name('login.verify');
+Route::get('/reset', [AuthController::class, 'newpass'])->name('login.reset');
 Route::get('/forgot', [loginController::class, 'forgot'])->name('login.forgot');
-Route::get('/newpass', [loginController::class, 'newpass'])->name('login.newpass');
+Route::get('/newpass', [AuthController::class, 'newpass'])->name('login.newpass');
+Route::post('/savepass', [AuthController::class, 'savepass'])->name('login.savepass');
+Route::get('/logout', [AuthController::class, 'logout'])->name('login.out');
 
 // about admin
 Route::get('/about', [aboutController::class, 'index'])->name('about.index');
@@ -61,6 +68,11 @@ Route::delete('/service/{id}/delete', [serviceController::class, 'destroy'])->na
 
 // work admin
 Route::get('/work', [workController::class, 'index'])->name('work.index');
+Route::get('/site/{site}', [workController::class, 'site'])->name('site.index');
+Route::post('/work/add', [workController::class, 'create'])->name('work.create');
+Route::put('/work/update/{id}', [workController::class, 'update'])->name('work.update');
+Route::delete('/work/delete/{id}', [workController::class, 'destroy'])->name('work.destroy');
 
 // contact admin
 Route::get('/contact', [contactController::class, 'index'])->name('contact.index');
+Route::put('/contact/{id}/update', [contactController::class, 'update'])->name('contact.update');

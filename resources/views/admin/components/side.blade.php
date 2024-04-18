@@ -27,19 +27,11 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                       Tables   
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="{{route('skill.index')}}">Skill</a>
+                                    <a class="nav-link" href="{{route('skill.index')}}">Skill</a>
                                             <a class="nav-link" href="{{route('education.index')}}">Education</a>
                                             <a class="nav-link" href="{{route('experience.index')}}">Experience</a>
                                             <a class="nav-link" href="{{route('service.index')}}">Service </a>
                                             <a class="nav-link" href="{{route('work.index')}}">Portfolio </a>
-                                        </nav>
-                                    </div>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Socials</div>
@@ -52,7 +44,10 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        @if(session()->has('user_name'))
+                        {{ session('user_name') }}!
+                    @endif
+                    
                     </div>
                 </nav>
             </div>

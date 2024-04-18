@@ -73,105 +73,140 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- birthday --}}
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Month<i class="uil uil-calendar-alt"></i></span>
-                            <select class="form-select" name="month" id="autoSizingSelect">
-                                <option selected>Choose...</option>
-                                <option value="{{$item->month}}" selected>{{$item->month}}</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                            <span class="input-group-text">Day</span>
-                            <input type="text" class="form-control" name="day" placeholder="{{$item->day}}" value="{{$item->day}}" aria-label="Server">
-                            <span class="input-group-text">Year</span>
-                            <input type="text" class="form-control" name="year" placeholder="{{$item->year}}" value="{{$item->year}}" aria-label="Server">
-                        </div>
+
                         
-                          {{-- website --}}
-                          <div class="col-auto">
-                            <h3>Website</h3>
-                            <div class=" input-group mb-3">
-                                <span class="input-group-text">www.</span>
-                                <input type="text" class="form-control" name="site" placeholder="{{$item->site}}" value="{{$item->site}}" id="autoSizingInputGroup" aria-label="Username">
-                                <span class="input-group-text">.com</span>
-                            </div>
-                          </div>
-
-                          {{-- course --}}
-                          <div class="col-auto">
-                            <h3>Degree</h3>
-                            <div class=" input-group mb-3">
-                                <span class="input-group-text"><i class="uil uil-globe"></i></i></span>
-                                <input type="text" class="form-control" name="course" placeholder="{{$item->course}}" value="{{$item->course}}" id="autoSizingInputGroup" aria-label="Username">
-                            </div>
-                        </div>
-
-                        {{-- location --}}
-                        <div class="col-auto">
-                            <h3>Location</h3>
-                            <div class=" input-group mb-3">
-                                <span class="input-group-text"><i class="uil uil-location-pin-alt"></i></span>
-                                <input type="text" class="form-control" name="location" placeholder="{{$item->location}}" value="{{$item->location}}" id="autoSizingInputGroup" aria-label="Username">
-                            </div>
-                        </div>
-                        {{-- age --}}
-                        <div class="col-auto">
-                            <h3>Age</h3>
-                            <div class=" input-group mb-3">
-                                <span class="input-group-text"><i class="uil uil-calendar-alt"></i></i></span>
-                                <input type="text" class="form-control" name="age" placeholder="{{$item->age}}" value="{{$item->age}}" id="autoSizingInputGroup" aria-label="Username">
-                            </div>
-                        </div>
-                        {{-- email --}}
-                        <div class="col-auto">
-                            <h3>Email</h3>
-                            <div class=" input-group mb-3">
-                                <span class="input-group-text"><i class="uil uil-envelope-edit"></i></i></i></span>
-                                <input type="text" class="form-control" name="email" placeholder="{{$item->email}}" value="{{$item->email}}" id="autoSizingInputGroup" aria-label="Username">
-                                <span class="input-group-text">@gmail.com</i></i></i></span>
-                            </div>
-                        </div>
-                        {{-- phone --}}
-                        <div class="col-auto">
-                            <h3>Phone</h3>
-                            <div class=" input-group mb-3">
-                                <span class="input-group-text"><i class="uil uil-phone">+639</i></i></i></i></span>
-                                <input type="text" class="form-control" name="phone" placeholder="{{$item->phone}}" value="{{$item->phone}}" id="autoSizingInputGroup" aria-label="Username">
+                       {{-- form group --}}
+                       <form action="{{ route('about.update', ['id' => $item->id]) }}" method="post">
+                        @csrf
+                        @method('post')
+                    
+                        <h3>Birthday</h3>
+                        <div class="row">
+                            <!-- Birthday Group -->
+                            <div class="col-md-4">
                                 
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text">Month</span>
+                                    <select class="form-control" name="month" id="autoSizingSelect">
+                                        <option selected>Choose...</option>
+                                        <option value="{{$item->month}}" selected>{{$item->month}}</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                </div>
                             </div>
-                        </div>
-                        {{-- freelance --}}
-                        <div class="col-auto">
-                            <h3>Freelance</h3>
-                            <div class=" input-group mb-3">
-                                <span class="input-group-text"><i class="uil uil-ellipsis-h"></i></span>
-                                <select class="form-select" name="freelance" value="{{$item->freelance}}" id="autoSizingSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="{{$item->freelance}}">{{$item->freelance}}</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
-                                
-                            </div>
-                        </div>
 
-                          <!-- description -->
-                     <div class="card border-0 mt-5">
-                        <div class="card-header">
-                            <h5 class="card-title">
-                                Update Description
-                            </h5>
+                            <div class="col-md-4">
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text">Day</span>
+                                    <input type="text" class="form-control" name="day" placeholder="{{$item->day}}" value="{{$item->day}}" aria-label="Server">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text">Year</span>
+                                    <input type="text" class="form-control" name="year" placeholder="{{$item->year}}" value="{{$item->year}}" aria-label="Server">
+                                </div>
+                            </div>
+                               
+                           
+                    
+                            <!-- Website Group -->
+                            <div class="col-md-4">
+                                <h3>Website</h3>
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text">www.</span>
+                                    <input type="text" class="form-control" name="site" placeholder="{{$item->site}}" value="{{$item->site}}" id="autoSizingInputGroup" aria-label="Username">
+                                    <span class="input-group-text">.com</span>
+                                </div>
+                            </div>
+                    
+                            <!-- Degree Group -->
+                            <div class="col-md-4">
+                                <h3>Degree</h3>
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text"><i class="uil uil-globe"></i></i></span>
+                                    <input type="text" class="form-control" name="course" placeholder="{{$item->course}}" value="{{$item->course}}" id="autoSizingInputGroup" aria-label="Username">
+                                </div>
+                            </div>
+
+                             <!-- Location Group -->
+                             <div class="col-md-4">
+                                <h3>Location</h3>
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text"><i class="uil uil-location-pin-alt"></i></span>
+                                    <input type="text" class="form-control" name="location" placeholder="{{$item->location}}" value="{{$item->location}}" id="autoSizingInputGroup" aria-label="Username">
+                                </div>
+                            </div>
+                            
                         </div>
-                        <div class="card-body">
-                            <div class="form-floating">
-                                <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" placeholder="" value="{{$item->description}}">{{$item->description}}</textarea>
-                                <label for="floatingTextarea2">Description</label>
-                              </div>
+                    
+                        <div class="row">
+                           
+                            <!-- Age Group -->
+                            <div class="col-auto">
+                                <h3>Age</h3>
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text"><i class="uil uil-calendar-alt"></i></i></span>
+                                    <input type="text" class="form-control" name="age" placeholder="{{$item->age}}" value="{{$item->age}}" id="autoSizingInputGroup" aria-label="Username">
+                                </div>
+                            </div>
+                            <!-- Email Group -->
+                            <div class="col-auto">
+                                <h3>Email</h3>
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text"><i class="uil uil-envelope-edit"></i></i></i></span>
+                                    <input type="text" class="form-control" name="email" placeholder="{{$item->email}}" value="{{$item->email}}" id="autoSizingInputGroup" aria-label="Username">
+                                    <span class="input-group-text">@gmail.com</i></i></i></span>
+                                </div>
+                            </div>
+
+                             <!-- Phone Group -->
+                             <div class="col-auto">
+                                <h3>Phone</h3>
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text"><i class="uil uil-phone">+639</i></i></i></i></span>
+                                    <input type="text" class="form-control" name="phone" placeholder="{{$item->phone}}" value="{{$item->phone}}" id="autoSizingInputGroup" aria-label="Username">
+                                    
+                                </div>
+                            </div>
+
+                             <!-- Freelance Group -->
+                             <div class="col-auto">
+                                <h3>Freelance</h3>
+                                <div class=" input-group mb-3">
+                                    <span class="input-group-text"><i class="uil uil-ellipsis-h"></i></span>
+                                    <select class="form-select" name="freelance" value="{{$item->freelance}}" id="autoSizingSelect">
+                                        <option selected>Choose...</option>
+                                        <option value="{{$item->freelance}}">{{$item->freelance}}</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                    
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            Update
-                        </button>
+                    
+                      
+                    
+                        <!-- Description Group -->
+                        <div class="card border-0 mt-5">
+                            <!-- Description Textarea -->
+                           
+                                <div class="card-header">
+                                    <h5 class="card-title">
+                                        Update Description
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" placeholder="" value="{{$item->description}}">{{$item->description}}</textarea>
+                                        <label for="floatingTextarea2">Description</label>
+                                      </div>
+                                
+                            <button type="submit" class="btn btn-primary mt-2">Update</button>
+                        </div>
                     </form>
                     </div>
                     </div>

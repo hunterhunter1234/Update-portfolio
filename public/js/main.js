@@ -1,15 +1,25 @@
 // JavaScript to Show/Hide Popup
-function openPopup() {
-    document.getElementById("portfolio-popup").style.display = "block";
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    portfolioItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            const name = this.getAttribute('data-name');
+            const description = this.getAttribute('data-description');
+      
+            document.getElementById("popup-name").innerText = "title: "+ name;
+            document.getElementById("popup-description").innerText ="description: "+ description;
+            document.getElementById("portfolio-popup").style.display = "block";
+        });
+    });
 
-function closePopup() {
-    document.getElementById("portfolio-popup").style.display = "none";
-}
+    document.getElementById("close-btn").addEventListener('click', function() {
+        document.getElementById("portfolio-popup").style.display = "none";
+    });
+});
 
 
-// Add event listener to trigger the popup when the portfolio item is clicked
-document.querySelector('.portfolio-item').addEventListener('click', openPopup);
+
 
 function toggleMenu() {
     var nav = document.querySelector('.aside');
@@ -111,6 +121,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function sendMail() {
+    var params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+    };
+
+    const serviceID = "service_2ws73sk";
+    const templateID = "template_xqed0y6";
+
+    emailjs.send(serviceID, templateID, params)
+        .then(function() {
+            // Show success message using SweetAlert
+            swal("Success!", "Your Message has been Send.", "success");
+        })
+        .catch(function(error) {
+            // Show error message using SweetAlert
+            swal("Error!", "Failed to send email: " + error, "error");
+        });
+}
 
 
 

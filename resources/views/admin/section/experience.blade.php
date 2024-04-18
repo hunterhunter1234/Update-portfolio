@@ -51,14 +51,19 @@
                                         <td>{{$item->created_at}}</td>
                                         <td>{{$item->updated_at}}</td>
                                         <td class="d-flex justify-content-center align-items-center">
-                                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#updateModal" data-id="{{$item->id}}" data-company="{{$item->company}}" data-role="{{$item->role}}" data-start="{{$item->start}}" data-end="{{$item->end}}">
-                                                <lord-icon
-                                                src="https://cdn.lordicon.com/xpgofwru.json"
-                                                trigger="hover"
-                                                style="width:30px;height:30px; margin-right: 10px;  ">
-                                            </lord-icon>
-                                            </button>
-
+                                            <div class="row">
+                                                <div class="col"></div> <!-- Empty column to push buttons to center -->
+                                                <div class="col-auto">
+                                                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#updateModal" data-id="{{$item->id}}" data-company="{{$item->company}}" data-role="{{$item->role}}" data-start="{{$item->start}}" data-end="{{$item->end}}">
+                                                        <lord-icon
+                                                        src="https://cdn.lordicon.com/xpgofwru.json"
+                                                        trigger="hover"
+                                                        style="width:30px;height:30px; margin-right: 10px;  ">
+                                                    </lord-icon>
+                                                    </button>
+                                                </div>
+                                            
+                                            <div class="col-auto">
                                             <form action="{{route('experience.delete', ['id'=>$item->id])}}" method="post">
                                                 @csrf
                                                 @method('delete')   
@@ -70,6 +75,8 @@
                                                </lord-icon>
                                                </button>
                                                </form>
+                                            </div>
+                                            <div class="col"></div> <!-- Empty column to push buttons to center -->
                                     </td>     
                                     </tr>
                                     @endforeach
@@ -83,7 +90,7 @@
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Experience </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -113,7 +120,7 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
                         </div>
@@ -125,7 +132,7 @@
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Experience</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">

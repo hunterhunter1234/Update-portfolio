@@ -15,19 +15,17 @@
                     <h4 class="mt-1 mb-5 pb-1">Forgot Password</h4>
                   </div>
   
-                  <form>
+                  <form action="{{route('login.verify')}}" method="post">
+                    @csrf
+                    @method('post')
                     <p>Please Enter Your Email</p>
                     <div class="form-outline mb-4" data-mdb-input-init>
-                        <input type="text" id="form11" class="form-control" />
+                        <input type="text" id="form11" name="email" class="form-control" />
                         <label class="form-label" for="form11">Example label</label>
                       </div>    
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Reset Password</button>
-                     
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Reset Password</button>                  
                     </div>
-  
-                   
-  
                   </form>
   
                 </div>

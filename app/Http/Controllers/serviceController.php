@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class serviceController extends Controller
 {
@@ -10,12 +11,18 @@ class serviceController extends Controller
 
     public function index()
     {
-        $service = service::all();
+        if (Auth::check()) {
+            $service = service::all();
         
-        return view('admin.section.service', [
-
-            'service' => $service
-        ]);
+            return view('admin.section.service', [
+    
+                'service' => $service
+            ]);
+        } else {
+            // Redirect the user to the login page or show an error message
+            return redirect()->route('login.index')->with('error', 'Please log in to change your password.');
+        }
+        
     }
 
     public function add(Request $request)
